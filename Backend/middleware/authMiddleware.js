@@ -1,6 +1,6 @@
 
 import jwt from 'jsonwebtoken';
-import User from '../models/User.js'; // Assuming you have a User model defined
+import User from '../models/User.js';
 
 const verifyUser = async (req , res, next) => {
     try {
@@ -18,8 +18,8 @@ const verifyUser = async (req , res, next) => {
         if(!user) {
             return res.status(404).json({success: false, error: "User not found"});
         }
-        req.user = user; // Attach user to request object
-        next(); // Call the next middleware or route handler
+        req.user = user; 
+        next(); 
 
     } catch (error) {
         return res.status(500).json({success: false, error: "Server error", message: error.message});
