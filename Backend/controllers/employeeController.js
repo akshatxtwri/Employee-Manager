@@ -7,11 +7,11 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// For __dirname in ES Modules
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// ✅ Correct multer storage
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, '..', 'Public', 'uploads'));
@@ -23,7 +23,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// ✅ Add Employee
 const addemployee = async (req, res) => {
   try {
     const {
