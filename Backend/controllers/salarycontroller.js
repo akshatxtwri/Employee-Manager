@@ -6,7 +6,7 @@ const addSalary = async (req, res) => {
     try {
         const { employeeId, basicSalary, allowances, deductions, payDate } = req.body;
 
-        // Validate input
+        
         if (!employeeId || basicSalary == null || allowances == null || deductions == null || !payDate) {
             return res.status(400).json({ message: "All fields are required" });
         }
@@ -36,10 +36,9 @@ const getSalary = async (req, res) => {
     const { id } = req.params;
     let salary;
 
-    // Try direct match with employee _id
     salary = await Salary.find({ employeeId: id }).populate('employeeId', 'employeeId name');
 
-    // If not found, try to match by userId through Employee
+
     if (!salary || salary.length === 0) {
       const employee = await Employee.findOne({ userId: id });
       if (!employee) {
