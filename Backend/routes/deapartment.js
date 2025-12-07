@@ -10,19 +10,19 @@ import {
 
 const router = express.Router();
 
-// CREATE
+
 router.post('/', authMiddleware, addDepartment);
 
-// ✅ FIXED: Get all departments
+
 router.get('/', authMiddleware, getDepartments);
 
-// READ ONE
+
 router.get('/:id', authMiddleware, getDepartment);
 
-// UPDATE
+
 router.put('/:id', authMiddleware, updateDepartment);
 
-// DELETE
+
 router.delete('/:id', authMiddleware, deleteDepartment);
 
 export default router;
