@@ -1,4 +1,4 @@
-import User from '../models/User.js'; // Assuming you have a User model defined
+import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -14,7 +14,7 @@ const login = async (req, res) => {
         if(!isMatch) {
             return res.status(400).json({message: "Invalid credentials"});
         }
-        // If login is successful, you can return user data or a token
+
 
         const token = jwt.sign({
             _id:user._id,
@@ -38,7 +38,7 @@ const login = async (req, res) => {
 }
 
 const verify = (req  , res) => {
-// ✅ Correct usage
+
 return res.status(200).json({success: true, user: req.user});
 }
 
