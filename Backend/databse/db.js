@@ -9,12 +9,11 @@ const dbConnect = () => {
     mongoose.connect(process.env.DATABASE_URL , 
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
-    //this returns a promise
 
     .then(() => console.log('Db connection established'))
     .catch( (error) => {console.log("issues in db connection");
         console.error(error.message);
-        process.exit(1); // this will terminate the node process if there is any error in db connection
+        process.exit(1); 
     });
 }
 
