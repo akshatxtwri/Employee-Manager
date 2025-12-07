@@ -9,7 +9,7 @@ console.log("auth.js is loaded");
 
 router.post('/login', (req, res) => {
   console.log("POST /login hit");
-  return login(req, res); // your actual controller
+  return login(req, res); 
 });
 
 router.post('/login' , login) 
